@@ -1,0 +1,65 @@
+.modal {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  background: $shadow-med;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+.modal__container {
+  background: #fff;
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    'rules . close'
+    '. images .';
+  width: 100%;
+  max-width: 520px;
+  padding: 2rem 2rem 1rem;
+}
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  grid-area: rules;
+}
+.modal__heading {
+  font-size: 1.5rem;
+  color: $dark-text;
+}
+.close-btn {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  grid-area: close;
+}
+.rules-img {
+  padding-top: 3rem;
+  grid-area: images;
+}
+.show-modal {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+@media (max-width: 768px) {
+  .modal__container {
+    max-width: inherit;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      'rules'
+      'images'
+      'close';
+    place-items: center;
+  }
+}

@@ -1,0 +1,116 @@
+.game {
+  position: relative;
+  display: grid;
+  grid-template-columns: (repeat(2, 1fr));
+  grid-template-areas:
+    'paper scissors'
+    'rock rock';
+  place-items: center;
+  height: 30rem;
+  padding-top: 4rem;
+}
+.game::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 28%;
+  top: 35%;
+  background: url('../images/bg-triangle.svg') no-repeat;
+  z-index: -1;
+}
+
+.choice-btn {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.choice {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  background: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0.5rem $shadow-light;
+}
+.choice::before,
+.choice::after {
+  content: '';
+  position: absolute;
+  left: -15%;
+  top: -15%;
+  width: 130%;
+  height: 130%;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.choice::after {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.choice-btn:focus .choice::after {
+  opacity: 1;
+  box-shadow: 0 0 0 2rem #223351;
+  z-index: -2;
+}
+
+.choice img {
+  transform: scale(1.5);
+}
+
+.choice.paper::before {
+  background: linear-gradient(to bottom, $paper-1, $paper-2);
+  box-shadow: 0 0.6rem $shadow-med, 0 0.6rem $paper-2;
+}
+.choice.scissors::before {
+  background: linear-gradient(to bottom, $scissors-1, $scissors-2);
+  box-shadow: 0 0.6rem $shadow-med, 0 0.6rem $scissors-2;
+}
+.choice.rock::before {
+  background: linear-gradient(to bottom, $rock-1, $rock-2);
+  box-shadow: 0 0.6rem $shadow-med, 0 0.6rem $rock-2;
+}
+
+.choice-btn[data-choice='paper'] {
+  grid-area: paper;
+}
+.choice-btn[data-choice='scissors'] {
+  grid-area: scissors;
+}
+.choice-btn[data-choice='rock'] {
+  grid-area: rock;
+}
+@media (max-width: 768px) {
+  .game::before {
+    left: 28%;
+    top: 35%;
+  }
+  .choice {
+    width: 8.5rem;
+    height: 8.5rem;
+  }
+  .choice img {
+    transform: scale(1.1);
+  }
+}
+@media (max-width: 500px) {
+  .game::before {
+    left: 8%;
+    top: 25%;
+    transform: scale(0.8);
+  }
+  .choice {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  .choice img {
+    transform: scale(1.1);
+  }
+  .choice-btn[data-choice='rock'] {
+    align-self: start;
+  }
+}

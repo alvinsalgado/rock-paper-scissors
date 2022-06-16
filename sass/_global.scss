@@ -1,0 +1,55 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+/*---------------------------------------------------------------
+ Global styles
+----------------------------------------------------------------*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Barlow Condensed', sans-serif;
+  background: radial-gradient(at top, $bg-grad-1, $bg-grad-2);
+  min-height: 100vh;
+  text-transform: uppercase;
+  color: $light-text;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 6rem;
+  // padding-bottom: 10rem;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.attribution {
+  font-size: 12px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+.hidden {
+  display: none;
+}
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 1rem;
+  }
+}
