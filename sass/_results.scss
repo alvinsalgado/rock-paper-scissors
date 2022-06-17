@@ -112,13 +112,11 @@
       'you-title  ai-title';
 
     padding-top: 8rem;
-
     &.show-winner {
       grid-template-areas:
         ' you-picked  . ai-picked '
         ' you-title  . ai-title'
         ' . result-winner . ';
-
       .results__user-image {
         place-self: end;
       }
@@ -135,7 +133,7 @@
   }
   .results__heading {
     font-size: 1.3rem;
-    padding: 6rem 0.5rem;
+    padding: 6rem 0.5rem 1rem;
   }
   .results__text {
     font-size: 2.1rem;
@@ -191,6 +189,9 @@
     min-width: 1.5rem;
     min-height: 1.5rem;
     transform: scale(0.8);
+  }
+  .results__winner {
+    padding-top: 1.2rem;
   }
   .play-again {
     font-size: 0.9rem;
